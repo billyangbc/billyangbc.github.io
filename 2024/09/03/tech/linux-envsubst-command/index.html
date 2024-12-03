@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://unpkg.com/@fortawesome/fontawesome-free@6.6.0/css/all.min.css" integrity="sha256-5eIC48iZUHmSlSUz9XtjRyK2mzQkHScZY1WdMaoz74E=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://unpkg.com/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"billyangbc.github.io","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.21.1","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="1. OverviewIn many cases, template, configuration, or initialization files  keep the names of bash variables as placeholders .Thus, we need to fill in the variables’ values before actual use.We’re goi">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Linux envsubst Command with Examples">
+<meta property="og:url" content="http://billyangbc.github.io/2024/09/03/tech/linux-envsubst-command/index.html">
+<meta property="og:site_name" content="Practical Tech">
+<meta property="og:description" content="1. OverviewIn many cases, template, configuration, or initialization files  keep the names of bash variables as placeholders .Thus, we need to fill in the variables’ values before actual use.We’re goi">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2024-09-03T07:00:00.000Z">
+<meta property="article:modified_time" content="2024-11-21T17:34:42.453Z">
+<meta property="article:author" content="Pratical Tech Blogger">
+<meta property="article:tag" content="devops">
+<meta property="article:tag" content="linux">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://billyangbc.github.io/2024/09/03/tech/linux-envsubst-command/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://billyangbc.github.io/2024/09/03/tech/linux-envsubst-command/","path":"2024/09/03/tech/linux-envsubst-command/","title":"Linux envsubst Command with Examples"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Linux envsubst Command with Examples | Practical Tech</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Practical Tech</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li>
+  </ul>
+</nav>
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-Overview"><span class="nav-number">1.</span> <span class="nav-text">1. Overview</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-Basic-Features-of-envsubst"><span class="nav-number">2.</span> <span class="nav-text">2. Basic Features of envsubst</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-Examples-of-Use"><span class="nav-number">3.</span> <span class="nav-text">3. Examples of Use</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-Specify-Variables-with-SHELL-FORMAT"><span class="nav-number">4.</span> <span class="nav-text">4. Specify Variables with SHELL-FORMAT</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-The-Format-of-SHELL-FORMAT"><span class="nav-number">5.</span> <span class="nav-text">5. The Format of SHELL-FORMAT</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-Substituting-All-Environment-Variables"><span class="nav-number">6.</span> <span class="nav-text">6. Substituting All Environment Variables</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-Listing-the-Content-of-SHELL-FORMAT"><span class="nav-number">7.</span> <span class="nav-text">7. Listing the Content of SHELL-FORMAT</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#8-Conclusion"><span class="nav-number">8.</span> <span class="nav-text">8. Conclusion</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Pratical Tech Blogger</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">17</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">15</span>
+        <span class="site-state-item-name">tags</span>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://billyangbc.github.io/2024/09/03/tech/linux-envsubst-command/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Pratical Tech Blogger">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Practical Tech">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Linux envsubst Command with Examples | Practical Tech">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Linux envsubst Command with Examples
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2024-09-03 00:00:00" itemprop="dateCreated datePublished" datetime="2024-09-03T00:00:00-07:00">2024-09-03</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2024-11-21 09:34:42" itemprop="dateModified" datetime="2024-11-21T09:34:42-08:00">2024-11-21</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/technology/" itemprop="url" rel="index"><span itemprop="name">technology</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><h2 id="1-Overview"><a href="#1-Overview" class="headerlink" title="1. Overview"></a>1. Overview</h2><p>In many cases, template, configuration, or initialization files  <strong>keep the names of bash variables as placeholders</strong> .<br>Thus, <strong>we need to fill in the variables’ values before actual use.</strong><br>We’re going to learn how to do just that with the <a target="_blank" rel="noopener" href="https://man7.org/linux/man-pages/man1/envsubst.1.html"><em>envsubst</em></a> command.</p>
+<h2 id="2-Basic-Features-of-envsubst"><a href="#2-Basic-Features-of-envsubst" class="headerlink" title="2. Basic Features of envsubst"></a>2. Basic Features of <em>envsubst</em></h2><p>The <em>envsubst</em> command searches the input for pattern *$VARIABLE *or  <em>${VARIABLE}</em> . <strong>Then, it replaces the pattern with the value of the corresponding bash variable.</strong><br>In contrast, a pattern that does not refer to any variable is replaced by an empty string.<br>Moreover,  <strong><em>envsubst</em> recognizes only <a target="_blank" rel="noopener" href="https://www.baeldung.com/linux/bash-variables-export">exported variables</a></strong> <em>.</em><br>The command is a part of the GNU ‘gettext’ package. Its basic syntax is:</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">envsubst [OPTION] [SHELL-FORMAT]</span><br></pre></td></tr></table></figure>
+
+<h2 id="3-Examples-of-Use"><a href="#3-Examples-of-Use" class="headerlink" title="3. Examples of Use"></a>3. Examples of Use</h2><p>Let’s prepare a simple greetings template in the file <em>welcome.txt</em>. We’re going to address the user with the name, add the desktop session’s name, and end up with a specific greeting:</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Hello user <span class="variable">$USER</span> <span class="keyword">in</span> <span class="variable">$DESKTOP_SESSION</span>. It<span class="string">&#x27;s time to say $HELLO!</span></span><br></pre></td></tr></table></figure>
+
+<p>Let’s export the HELLO variable:</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">export</span> HELLO=<span class="string">&quot;good morning&quot;</span></span><br><span class="line">$ envsubst &lt; welcome.txt</span><br><span class="line">Hello user joe <span class="keyword">in</span> Lubuntu. It<span class="string">&#x27;s time to say good morning!</span></span><br></pre></td></tr></table></figure>
+
+<p>And now, let’s unset this variable:</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">unset</span> HELLO</span><br><span class="line">$ envsubst &lt; welcome.txt</span><br><span class="line">Hello user joe <span class="keyword">in</span> Lubuntu. It<span class="string">&#x27;s time to say !</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="4-Specify-Variables-with-SHELL-FORMAT"><a href="#4-Specify-Variables-with-SHELL-FORMAT" class="headerlink" title="4. Specify Variables with SHELL-FORMAT"></a>4. Specify Variables with SHELL-FORMAT</h2><p><strong>The <em>SHELL-FORMAT</em> argument selects variables for substitution.</strong><br>That is, only variables mentioned in this argument will be replaced. <strong>All other variables and all other words containing the dollar sign remain untouched.</strong><br>The variable pattern is the same as with the command input – *$VARIABLE *or  <em>${VARIABLE}</em> .<br>Let’s give it a check on the <em>shell_format_test.txt</em> input file:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">This is <span class="variable">$FOO</span> and this <span class="variable">$BAR</span></span><br></pre></td></tr></table></figure>
+
+<p>Also, let’s set and export two variables, <em>FOO</em> and  <em>BAR</em> :</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="built_in">export</span> FOO=foo <span class="built_in">export</span> BAR=bar</span><br></pre></td></tr></table></figure>
+
+<p>Now, we’re going to replace only  <em>FOO</em> :</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ envsubst <span class="string">&#x27;$FOO&#x27;</span> &lt; shell_format_test.txt</span><br><span class="line">This is foo and this <span class="variable">$BAR</span></span><br></pre></td></tr></table></figure>
+<p>We should use apostrophes around the content of <em>SHELL-FORMAT</em>  <strong>to prevent variable substitution before the call to <em>envsubst</em></strong> .</p>
+<h2 id="5-The-Format-of-SHELL-FORMAT"><a href="#5-The-Format-of-SHELL-FORMAT" class="headerlink" title="5. The Format of SHELL-FORMAT"></a>5. The Format of <em>SHELL-FORMAT</em></h2><p>Let’s note that the structure of <em>SHELL-FORMAT</em> is very flexible. For example, variables may form a delimited list:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ envsubst <span class="string">&#x27;$FOO,$BAR&#x27;</span> &lt; shell_format_test.txt</span><br><span class="line">This is foo and this bar</span><br></pre></td></tr></table></figure>
+<p>Or, they can be a part of any text:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ envsubst <span class="string">&#x27;Please deal with $FOO and $BAR&#x27;</span>&lt; shell_format_test.txt</span><br><span class="line">This is foo and this bar</span><br></pre></td></tr></table></figure>
+<p>The variable pattern must contain only alphanumeric ASCII characters and underscores and may not start with a digit.</p>
+<h2 id="6-Substituting-All-Environment-Variables"><a href="#6-Substituting-All-Environment-Variables" class="headerlink" title="6. Substituting All Environment Variables"></a>6. Substituting All Environment Variables</h2><p>As an example,  <strong>let’s replace all environment variables found in our <em>welcome.txt</em> template file</strong> :</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ envsubst <span class="string">&quot;<span class="subst">$(printf &#x27;$&#123;%s&#125; &#x27; $(env | cut -d&#x27;=&#x27; -f1)</span>)&quot;</span> &lt; welcome.txt</span><br><span class="line">Hello user joe <span class="keyword">in</span> Lubuntu. It<span class="string">&#x27;s time to say $HELLO!</span></span><br></pre></td></tr></table></figure>
+
+<p>Now, let’s analyze the <em>SHELL-FORMAT</em> argument.<br>First, the <a target="_blank" rel="noopener" href="https://man7.org/linux/man-pages/man1/env.1p.html"><em>env</em></a> command provides a list of variables and their values in pairs. Then, we <a target="_blank" rel="noopener" href="https://man7.org/linux/man-pages/man1/cut.1.html"><em>cut</em></a> each pair and extract the variable’s name.<br>Finally, <a target="_blank" rel="noopener" href="https://man7.org/linux/man-pages/man1/printf.1.html"><em>printf</em></a> puts this name into curly braces and adds a leading dollar sign.</p>
+<h2 id="7-Listing-the-Content-of-SHELL-FORMAT"><a href="#7-Listing-the-Content-of-SHELL-FORMAT" class="headerlink" title="7. Listing the Content of SHELL-FORMAT"></a>7. Listing the Content of <em>SHELL-FORMAT</em></h2><p>Let’s use a <em>-v</em> or <em>–variables</em> switch to print all variables present in the <em>SHELL-FORMAT</em> argument. <strong>With this option, no actual substitution takes place.</strong><br>So, let’s print names of all environment variables in a rather fancy way (with the help of <em><a target="_blank" rel="noopener" href="https://man7.org/linux/man-pages/man1/xargs.1.html">xargs</a></em> and <a target="_blank" rel="noopener" href="https://man7.org/linux/man-pages/man1/column.1.html"><em>column</em></a>):</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ envsubst <span class="string">&quot;<span class="subst">$(printf &#x27;$&#123;%s&#125; &#x27; $(env | cut -d&#x27;=&#x27; -f1)</span>)&quot;</span> --variables | xargs -L4 | column -t</span><br><span class="line">XDG_VTNR               LC_PAPER                  LC_ADDRESS           XDG_SESSION_ID</span><br><span class="line">XDG_GREETER_DATA_DIR   SELINUX_INIT              LC_MONETARY          SAL_USE_VCLPLUGIN</span><br><span class="line">CLUTTER_IM_MODULE      SESSION                   GPG_AGENT_INFO       TERM</span><br></pre></td></tr></table></figure>
+
+<h2 id="8-Conclusion"><a href="#8-Conclusion" class="headerlink" title="8. Conclusion"></a>8. Conclusion</h2><p>In this article, we looked through some of the details of the <em>envsubst</em> command. Furthermore, we studied examples of its use.<br>Finally, we showed how to use <em>envsubst</em> to replace all referenced environment variables in a text file with their corresponding values from the shell environment.</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/devops/" rel="tag"># devops</a>
+              <a href="/tags/linux/" rel="tag"># linux</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2024/09/12/tech/ansible-inventory-with-yaml/" rel="prev" title="Writing Ansible Inventory Files in YAML Format">
+                  <i class="fa fa-angle-left"></i> Writing Ansible Inventory Files in YAML Format
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2024/08/23/tech/nfs/docker-nfs-server-v4/" rel="next" title="Using Docker to build nfs server">
+                  Using Docker to build nfs server <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://unpkg.com/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/@next-theme/pjax@0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/sidebar.js"></script><script src="/js/next-boot.js"></script><script src="/js/pjax.js"></script>
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>

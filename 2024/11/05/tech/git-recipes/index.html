@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://unpkg.com/@fortawesome/fontawesome-free@6.6.0/css/all.min.css" integrity="sha256-5eIC48iZUHmSlSUz9XtjRyK2mzQkHScZY1WdMaoz74E=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://unpkg.com/animate.css@3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"billyangbc.github.io","root":"/","images":"/images","scheme":"Mist","darkmode":false,"version":"8.21.1","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="This page contains a whole lot of Git commands that I personally used in the past to keep as a track record for future use. Navigating history1234567git loggit lggit checkout ca55e77egit checkout mast">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Git Recipes">
+<meta property="og:url" content="http://billyangbc.github.io/2024/11/05/tech/git-recipes/index.html">
+<meta property="og:site_name" content="Practical Tech">
+<meta property="og:description" content="This page contains a whole lot of Git commands that I personally used in the past to keep as a track record for future use. Navigating history1234567git loggit lggit checkout ca55e77egit checkout mast">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2024-11-05T08:00:00.000Z">
+<meta property="article:modified_time" content="2024-11-21T17:34:42.453Z">
+<meta property="article:author" content="Pratical Tech Blogger">
+<meta property="article:tag" content="git">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://billyangbc.github.io/2024/11/05/tech/git-recipes/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"http://billyangbc.github.io/2024/11/05/tech/git-recipes/","path":"2024/11/05/tech/git-recipes/","title":"Git Recipes"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Git Recipes | Practical Tech</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Practical Tech</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li>
+  </ul>
+</nav>
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Navigating-history"><span class="nav-number">1.</span> <span class="nav-text">Navigating history</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Branching"><span class="nav-number">2.</span> <span class="nav-text">Branching</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Stash"><span class="nav-number">3.</span> <span class="nav-text">Stash</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Committing"><span class="nav-number">4.</span> <span class="nav-text">Committing</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Bisect"><span class="nav-number">5.</span> <span class="nav-text">Bisect</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Filter-Branch"><span class="nav-number">6.</span> <span class="nav-text">Filter Branch</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Pratical Tech Blogger</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">17</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">15</span>
+        <span class="site-state-item-name">tags</span>
+      </div>
+  </nav>
+</div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://billyangbc.github.io/2024/11/05/tech/git-recipes/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Pratical Tech Blogger">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Practical Tech">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Git Recipes | Practical Tech">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Git Recipes
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2024-11-05 00:00:00" itemprop="dateCreated datePublished" datetime="2024-11-05T00:00:00-08:00">2024-11-05</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2024-11-21 09:34:42" itemprop="dateModified" datetime="2024-11-21T09:34:42-08:00">2024-11-21</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/technology/" itemprop="url" rel="index"><span itemprop="name">technology</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p>This page contains a whole lot of Git commands that I personally used in the past to keep as a track record for future use.</p>
+<h2 id="Navigating-history"><a href="#Navigating-history" class="headerlink" title="Navigating history"></a>Navigating history</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">log</span></span><br><span class="line">git lg</span><br><span class="line">git checkout ca55e77e</span><br><span class="line">git checkout master</span><br><span class="line">git checkout HEAD^3</span><br><span class="line">git checkout <span class="string">&quot;HEAD@&#123;1 month ago&#125;&quot;</span></span><br><span class="line">git checkout :/Commit message</span><br></pre></td></tr></table></figure>
+
+<h2 id="Branching"><a href="#Branching" class="headerlink" title="Branching"></a>Branching</h2><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git checkout -b develop <span class="comment"># creates new branch develop and does checkout of develop</span></span><br><span class="line">git merge feature/awesomeness <span class="comment"># merges the branch &quot;feature/awesomeness&quot; into the current branch</span></span><br><span class="line">git branch -d feature/bullshit <span class="comment"># deletes local branch &quot;feature/bullshit&quot;</span></span><br><span class="line">git push origin :feature/bullshit <span class="comment"># deletes remote branch &quot;feature/bullshit&quot; from the &quot;origin&quot; remote</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="Stash"><a href="#Stash" class="headerlink" title="Stash"></a>Stash</h2><ul>
+<li>Getting a single file from a stash… <code>git checkout stash@&#123;0&#125; -- &lt;filename&gt;</code></li>
+<li>Stash all files including untracked files… <code>git stash -u</code></li>
+<li>Save a stash with a specific message… <code>git stash apply -m &quot;My stash with ABC&quot;</code></li>
+</ul>
+<h2 id="Committing"><a href="#Committing" class="headerlink" title="Committing"></a>Committing</h2><ul>
+<li>Add specific lines of a file to the commit interactively. <code>git add -p &lt;filenames&gt;</code></li>
+<li>Commit the staged changes. <code>git commit -m &quot;your commit message&quot;</code></li>
+</ul>
+<h2 id="Bisect"><a href="#Bisect" class="headerlink" title="Bisect"></a>Bisect</h2><ul>
+<li><p>Trace buggy commit with git bisect<br><strong>Manual</strong></p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">git bisect reset <span class="comment"># only needed after a bisect</span></span><br><span class="line">git bisect start</span><br><span class="line">git bisect good &lt;revision&gt;</span><br><span class="line">git bisect bad &lt;revision&gt; <span class="comment"># git will checkout the next revision to check</span></span><br><span class="line">git bisect (good | bad)`</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Automated</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git bisect start</span><br><span class="line">git bisect good &lt;revision&gt;</span><br><span class="line">git bisect bad &lt;revision&gt;</span><br><span class="line">git bisect &lt;run/path/to/decision/script args &gt;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="Filter-Branch"><a href="#Filter-Branch" class="headerlink" title="Filter Branch"></a>Filter Branch</h2><ul>
+<li>Fix committer&#x2F;author<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/sh</span></span><br><span class="line">git filter-branch -f --env-filter <span class="string">&#x27;</span></span><br><span class="line"><span class="string">n=$GIT_AUTHOR_NAME</span></span><br><span class="line"><span class="string">m=$GIT_AUTHOR_EMAIL</span></span><br><span class="line"><span class="string">export GIT_AUTHOR_NAME=&quot;$n&quot;</span></span><br><span class="line"><span class="string">export GIT_AUTHOR_EMAIL=&quot;$m&quot;</span></span><br><span class="line"><span class="string">export GIT_COMMITTER_NAME=&quot;$n&quot;</span></span><br><span class="line"><span class="string">export GIT_COMMITTER_EMAIL=&quot;$m&quot;</span></span><br><span class="line"><span class="string">&#x27;</span> HEAD</span><br></pre></td></tr></table></figure></li>
+</ul>
+<p><strong>Remove filter-branch backup</strong></p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git update-ref -d refs/original/refs/heads/master</span><br></pre></td></tr></table></figure>
+
+<p><strong>Move commits to new Repository</strong></p>
+<p>These examples assume you are already on the branch you want to cherry-pick these commits into.</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git remote add oldrepo https://github.com/path/to/oldrepo</span><br><span class="line">git fetch oldrepo</span><br></pre></td></tr></table></figure>
+
+<p><strong>Take a specific subset of commits</strong></p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git cherry-pick --strategy recursive --strategy-option theirs «oldestCommitHash»^..«latestCommitHash»</span><br></pre></td></tr></table></figure>
+
+<p><strong>Take all commits involved in a specific merge commit</strong></p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git cherry-pick --strategy recursive --strategy-option theirs «mergeCommitHash»^..«mergeCommitHash»</span><br></pre></td></tr></table></figure>
+
+<p><strong>Handle deleted files and conflicts</strong></p>
+<p>As you are cherry-picking your target branch might not have all files. You might end up in some conflicts that you will have to handle.</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">git mergetool</span><br><span class="line"><span class="comment"># either c/m or d based on if you want to keep or delete the files</span></span><br><span class="line">git cherry-pick --<span class="built_in">continue</span></span><br><span class="line">Git config</span><br></pre></td></tr></table></figure>
+
+<p><strong>Git config</strong></p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br></pre></td><td class="code"><pre><span class="line">[<span class="built_in">alias</span>]</span><br><span class="line">  bw = blame -w -M</span><br><span class="line">  c = commit</span><br><span class="line">  commend = commit --amend --no-edit</span><br><span class="line">  cc = commit --all --amend --no-edit</span><br><span class="line">  ca = commit --all</span><br><span class="line">  co = checkout</span><br><span class="line">  cb = <span class="string">&quot;!f() &#123; git co `git log --until=\&quot;$*\&quot; -1 --format=%h`; &#125; ; f&quot;</span></span><br><span class="line">  s = status --short</span><br><span class="line">  d = diff</span><br><span class="line">  dc = diff --cached --word-diff=color</span><br><span class="line">  dw = diff --word-diff=color</span><br><span class="line">  l = <span class="built_in">log</span></span><br><span class="line">  a = add</span><br><span class="line">  addnw = !sh -c <span class="string">&#x27;git diff -U0 -w --no-color --ignore-blank-lines &quot;$@&quot; | git apply --cached --ignore-whitespace --unidiff-zero -&#x27;</span></span><br><span class="line">  af = add -f</span><br><span class="line">  p = push</span><br><span class="line">  dt = difftool</span><br><span class="line">  mt = mergetool</span><br><span class="line">  ss = show -1 --format=%B--<span class="built_in">stat</span></span><br><span class="line">  sw = show -1 --format=%B--<span class="built_in">stat</span> --word-diff=color</span><br><span class="line">  whatis = show -s --pretty=<span class="string">&#x27;tformat:%h (%s, %ad)&#x27;</span> --<span class="built_in">date</span>=short</span><br><span class="line">  whatadded = <span class="built_in">log</span> --diff-filter=A</span><br><span class="line">  deleted = <span class="built_in">log</span> --diff-filter=D --summary</span><br><span class="line">  lg = <span class="built_in">log</span> --graph --pretty=format:<span class="string">&#x27;%Cred%h%Creset %C(yellow)%an%d%Creset %s [%N] %Cgreen(%ar)%Creset&#x27;</span> --<span class="built_in">date</span>=relative</span><br><span class="line">  lgd = <span class="built_in">log</span> --graph --pretty=format:<span class="string">&#x27;%Cred%h%Creset %C(yellow)%an%d%Creset %s [%N] %Cgreen(%ar)%Creset&#x27;</span> --<span class="built_in">date</span>=default</span><br><span class="line">  lgm = <span class="built_in">log</span> --graph --pretty=format:<span class="string">&#x27;%Cred%h%Creset %C(yellow)%an%d%Creset %s [%N] %Cgreen(%ar)%Creset&#x27;</span> --<span class="built_in">date</span>=relative --author=AUTHOR_EMAIL</span><br><span class="line">  abbr = <span class="string">&quot;!sh -c &#x27;git rev-list --all | grep ^<span class="variable">$1</span> | while read commit; do git --no-pager log -n1 --pretty=format:\&quot;%H %ci %an %s%n\&quot; <span class="variable">$commit</span>; done&#x27; -&quot;</span></span><br><span class="line">  refeature = <span class="string">&quot;!f() &#123; git co develop &amp;&amp; git pull &amp;&amp; git co <span class="variable">$1</span> &amp;&amp; git pull &amp;&amp; git rebase develop; &#125; ; f&quot;</span></span><br><span class="line">  ffmerge = <span class="string">&quot;!f() &#123; git refeature <span class="variable">$1</span> &amp;&amp; git co develop &amp;&amp; git merge <span class="variable">$1</span>; &#125; ; f&quot;</span></span><br><span class="line">  clearbranch = <span class="string">&quot;!f() &#123; git branch -d <span class="variable">$1</span> &amp;&amp; git push origin :<span class="variable">$1</span>; &#125; ; f&quot;</span></span><br><span class="line">  please = push --force-with-lease</span><br><span class="line">  undo = restore</span><br><span class="line">  unstage = restore --staged</span><br><span class="line">  wip = for-each-ref --<span class="built_in">sort</span>=<span class="string">&#x27;authordate:iso8601&#x27;</span> --format=<span class="string">&#x27;%(color:green)%(authordate:relative)%09%(color:reset)%(refname:short)&#x27;</span> refs/heads</span><br><span class="line">[color]</span><br><span class="line">  ui = always</span><br><span class="line">[core]</span><br><span class="line">  pager = less -x1,5</span><br><span class="line">  fileMode = <span class="literal">true</span></span><br><span class="line">  editor = vim</span><br><span class="line">  autocrlf = <span class="literal">false</span></span><br><span class="line">[push]</span><br><span class="line">  default = current</span><br><span class="line">[branch]</span><br><span class="line">  autosetuprebase = remote</span><br><span class="line">[merge]</span><br><span class="line">  tool = vimdiff</span><br><span class="line">  guitool = gvimdiff</span><br><span class="line">  conflictstyle = diff3</span><br><span class="line">[mergetool]</span><br><span class="line">  prompt = <span class="literal">false</span></span><br><span class="line">[diff]</span><br><span class="line">  tool = vimdiff</span><br><span class="line">  guitool = gvimdiff</span><br><span class="line">[difftool]</span><br><span class="line">  prompt = <span class="literal">false</span></span><br><span class="line">[commit]</span><br><span class="line">	gpgSign = <span class="literal">true</span></span><br><span class="line">[tag]</span><br><span class="line">	forceSignAnnotated = <span class="literal">true</span></span><br><span class="line">[includeIf <span class="string">&quot;gitdir:~/code/priv/**/*&quot;</span>]</span><br><span class="line">    path = <span class="string">&quot;~/.gitconfig-private&quot;</span></span><br><span class="line">[init]</span><br><span class="line">	defaultBranch = main</span><br></pre></td></tr></table></figure>
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/git/" rel="tag"># git</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2024/12/03/tech/macos-mounting-external-hard-drives-without-login/" rel="prev" title="Mac OS automatically mounting external hard drives without login">
+                  <i class="fa fa-angle-left"></i> Mac OS automatically mounting external hard drives without login
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2024/11/04/hexo/how-to-setup-photo-displaying-in-hexo/" rel="next" title="How to setup photo displaying in Hexo blog">
+                  How to setup photo displaying in Hexo blog <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/mist/" rel="noopener" target="_blank">NexT.Mist</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://unpkg.com/animejs@3.2.1/lib/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/@next-theme/pjax@0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/sidebar.js"></script><script src="/js/next-boot.js"></script><script src="/js/pjax.js"></script>
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>
